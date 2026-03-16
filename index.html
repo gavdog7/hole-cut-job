@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hole Cut Job — Midea Duo Wall Vent Installation</title>
+<style>
+  :root {
+    --bg: #1a1a1a;
+    --surface: #242424;
+    --surface2: #2e2e2e;
+    --border: #3a3a3a;
+    --text: #e8e8e8;
+    --text-dim: #999;
+    --accent: #4a9eff;
+    --accent2: #ff6b4a;
+    --success: #4adf7c;
+    --warn: #ffc64a;
+    --radius: 12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1e3a5f, #2a1a3e);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+  }
+  .header h1 { font-size: 1.8rem; margin-bottom: 0.3rem; }
+  .header p { color: var(--text-dim); font-size: 0.95rem; }
+
+  /* Nav */
+  .nav {
+    display: flex;
+    overflow-x: auto;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav button {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    padding: 0.9rem 1.2rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav button:hover { color: var(--text); background: var(--surface2); }
+  .nav button.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    background: var(--surface2);
+  }
+
+  /* Main content */
+  .content { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+  .section { display: none; animation: fadeIn 0.3s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .card h3 { color: var(--accent); margin-bottom: 0.5rem; font-size: 1.1rem; }
+  .card h4 { color: var(--warn); margin-bottom: 0.4rem; font-size: 0.95rem; }
+
+  /* Measurement callout */
+  .callout {
+    background: linear-gradient(135deg, #1e3a2f, #1a2e1a);
+    border: 1px solid var(--success);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+  }
+  .callout.warn {
+    background: linear-gradient(135deg, #3a2e1a, #3a1a1a);
+    border-color: var(--accent2);
+  }
+  .callout.info {
+    background: linear-gradient(135deg, #1a2a3e, #1a1e3a);
+    border-color: var(--accent);
+  }
+  .callout-label {
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+  }
+  .callout.warn .callout-label { color: var(--accent2); }
+  .callout .callout-label { color: var(--success); }
+  .callout.info .callout-label { color: var(--accent); }
+
+  /* SVG containers */
+  .viz-container {
+    background: #1e1e1e;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin: 1rem 0;
+    text-align: center;
+    overflow-x: auto;
+  }
+  .viz-container svg { max-width: 100%; height: auto; }
+  .viz-label {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
+  /* Product cards */
+  .product {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .product-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+  .product-name { font-weight: 700; font-size: 1rem; }
+  .product-price {
+    background: var(--accent);
+    color: #000;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+  .product-desc { color: var(--text-dim); font-size: 0.9rem; }
+  .product-link {
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+  .product-link:hover { background: var(--accent); color: #000; text-decoration: none; }
+
+  /* Steps */
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: #000;
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin-right: 0.7rem;
+    flex-shrink: 0;
+  }
+  .step-header { display: flex; align-items: center; margin-bottom: 0.5rem; }
+  .step-header h3 { color: var(--text); }
+
+  /* Checklist */
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: var(--accent);
+    flex-shrink: 0;
+  }
+  .checklist label { cursor: pointer; }
+
+  /* Vent comparison */
+  .vent-options { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 640px) { .vent-options { grid-template-columns: repeat(3, 1fr); } }
+  .vent-option {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .vent-option:hover { border-color: var(--accent); }
+  .vent-option.selected { border-color: var(--accent); background: var(--surface2); }
+  .vent-option .badge {
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    background: var(--accent);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .vent-option h4 { margin-bottom: 0.3rem; font-size: 0.95rem; }
+  .vent-option .price { color: var(--success); font-weight: 700; margin: 0.3rem 0; }
+  .vent-option .desc { color: var(--text-dim); font-size: 0.82rem; }
+
+  /* Bottom nav */
+  .bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    margin-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .btn:hover { background: var(--border); }
+  .btn.primary { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+  .btn.primary:hover { background: #3a8aee; }
+
+  /* Dimension diagram interactive */
+  .dim-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .dim-item {
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .dim-value { font-size: 2rem; font-weight: 800; color: var(--accent); }
+  .dim-label { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+  ul, ol { padding-left: 1.3rem; }
+  li { margin-bottom: 0.3rem; }
+
+  /* Tabs within sections */
+  .tab-bar { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+  .tab-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    transition: all 0.15s;
+  }
+  .tab-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Product images */
+  .product-img-wrap {
+    background: #181818;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  .product-img-wrap img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  .product-img-wrap.tall img { max-height: 400px; }
+  .product-img-wrap.spec img { max-height: 600px; }
+  .img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin: 0.8rem 0;
+  }
+  .img-grid.three { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 640px) {
+    .img-grid { grid-template-columns: 1fr; }
+    .img-grid.three { grid-template-columns: 1fr; }
+  }
+  .img-caption {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: 0.3rem;
+  }
+  .photo-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+  }
+  .photo-card img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  .photo-card .caption {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+  }
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  @media (max-width: 700px) { .comparison-row { grid-template-columns: 1fr; } }
+  .comparison-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-align: center;
+  }
+  .comparison-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: #181818;
+    padding: 0.5rem;
+  }
+  .comparison-item .info { padding: 0.8rem; }
+  .comparison-item .info h4 { font-size: 0.9rem; margin-bottom: 0.2rem; }
+  .comparison-item .info .price { color: var(--success); font-weight: 700; }
+  .comparison-item .info .desc { color: var(--text-dim); font-size: 0.8rem; margin-top: 0.2rem; }
+  .comparison-item.recommended { border-color: var(--accent); }
+  .comparison-item.recommended::before {
+    content: 'BEST MATCH';
+    display: block;
+    background: var(--accent);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px;
+    text-align: center;
+  }
+
+  /* Dimension overlay on images */
+  .dim-overlay {
+    position: relative;
+    display: inline-block;
+  }
+  .dim-overlay img { display: block; }
+  .dim-tag {
+    position: absolute;
+    background: rgba(74,158,255,0.9);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .dim-grid { grid-template-columns: 1fr; }
+    .content { padding: 1rem; }
+    .header { padding: 1.5rem 1rem; }
+    .header h1 { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Midea Duo Wall Vent Installation</h1>
+  <p>Cupboard install &bull; 6&#8539;" hole &bull; Through-wall exhaust &bull; Taupe board-and-batten exterior</p>
+</div>
+
+<div class="nav" id="nav">
+  <button class="active" data-section="overview">Overview</button>
+  <button data-section="measurements">Measurements</button>
+  <button data-section="visualize">Visualize</button>
+  <button data-section="vent-caps">Vent Caps</button>
+  <button data-section="tools">Tools</button>
+  <button data-section="materials">Materials</button>
+  <button data-section="walkthrough">Walkthrough</button>
+  <button data-section="checklist">Checklist</button>
+</div>
+
+<div class="content">
+
+  <!-- ===== OVERVIEW ===== -->
+  <div class="section active" id="overview">
+    <h2 style="margin-bottom:1rem;">Job Summary</h2>
+
+    <div class="card">
+      <h3>What You're Doing</h3>
+      <p>Cutting a <strong>6&#8539;" diameter hole</strong> through your cupboard wall (drywall + wood studs) to permanently vent your <strong>Midea Duo MAP14HS1TBL</strong> portable air conditioner. The AC lives inside the cupboard; the exhaust exits through the wall to the outside.</p>
+    </div>
+
+    <!-- Your space photos -->
+    <div class="img-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div>
+        <div class="photo-card" style="margin-bottom:0;">
+          <img src="images/IMG_1079.jpg" alt="Your cupboard interior">
+          <div class="caption">Your cupboard — AC goes on the floor, hose through back wall</div>
+        </div>
+      </div>
+      <div>
+        <div class="photo-card" style="margin-bottom:0;">
+          <img src="images/exterior-wall.jpg" alt="Your exterior wall">
+          <div class="caption">Your exterior wall — warm taupe/sage board-and-batten siding with dark trim</div>
+        </div>
+      </div>
+      <div>
+        <div class="photo-card" style="margin-bottom:0;">
+          <img src="images/products/midea-duo.jpg" alt="Midea Duo MAP14HS1TBL" style="object-fit:contain; background:#111; padding:1rem;">
+          <div class="caption">Midea Duo MAP14HS1TBL — 19.5"W × 16.7"D × 32.5"H</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout info" style="margin-top:1rem;">
+      <div class="callout-label">Exterior Color Note</div>
+      <p>Your siding is a <strong>warm taupe/sage-green</strong>, not dark/black. The dark elements (trim, gutters, awning) are accents. For the vent cap, you have two strategies: <strong>(1) Match the siding</strong> with a tan/brown vent so it disappears, or <strong>(2) Match the trim</strong> with black so it looks intentional. I now recommend <strong>tan to match the siding</strong> — see the Vent Caps section for updated guidance. I also noticed you already have existing vents on this wall (small white squares near the top), so there's precedent.</p>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">Key Advantage — Hose-in-Hose Design</div>
+      <p>The Midea Duo uses a single <strong>hose-in-hose</strong> system: hot exhaust goes out through the inner channel while fresh intake air comes in through the outer channel. This means <strong>one hole, one hose</strong> — but it also means you cannot use a standard backdraft damper (it would block the intake). Plan for a <strong>screen-only vent</strong> or removable damper.</p>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">Critical: Cupboard Ventilation</div>
+      <p>The #1 mistake people make with closet AC installs: the unit needs to pull room air in and blow cooled air out. <strong>If the cupboard doors are closed, it'll just recirculate closet air and overheat.</strong> Plan to keep doors open, install louvered doors, or cut vents into the existing doors.</p>
+    </div>
+
+    <div class="card">
+      <h3>Reference Video</h3>
+      <p>The best walkthrough for exactly this job is from <strong>Uncharted DIY</strong> — portable AC vent through a stud wall with drywall, including a magnetic cover for winter:</p>
+      <p style="margin-top:0.5rem;"><a href="https://uncharteddiy.com/portable-ac-vent-through-wall/" target="_blank">uncharteddiy.com/portable-ac-vent-through-wall/</a></p>
+      <p style="margin-top:0.8rem;">For a concise professional overview, <strong>This Old House</strong> covers the basics in ~3 minutes:</p>
+      <p style="margin-top:0.5rem;"><a href="https://www.thisoldhouse.com/heating-cooling/21017273/how-to-install-a-portable-air-conditioner" target="_blank">thisoldhouse.com — How to Install a Portable Air Conditioner</a></p>
+      <p style="margin-top:0.8rem;">And the <strong>Instructables</strong> guide with 6 steps and photos:</p>
+      <p style="margin-top:0.5rem;"><a href="https://www.instructables.com/Wall-Exhaust-for-Mobile-Air-Conditioner/" target="_blank">instructables.com — Wall Exhaust for Mobile Air Conditioner</a></p>
+    </div>
+
+    <div class="card">
+      <h3>Midea Duo Specs at a Glance</h3>
+      <ul>
+        <li>Unit size: 19.5" W × 16.7" D × 32.5" H</li>
+        <li>Weight: ~73 lbs</li>
+        <li>Exhaust hose outer diameter: ~5–6" (hose-in-hose assembly)</li>
+        <li>Max hose length: ~45" (keep it short and straight!)</li>
+        <li>Cools up to 450–550 sq ft</li>
+        <li>Includes wall exhaust adapters, anchors, and screws</li>
+      </ul>
+    </div>
+
+    <div class="bottom-nav">
+      <span></span>
+      <button class="btn primary" onclick="goTo('measurements')">Next: Measurements &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== MEASUREMENTS ===== -->
+  <div class="section" id="measurements">
+    <h2 style="margin-bottom:1rem;">Critical Measurements</h2>
+
+    <div class="dim-grid">
+      <div class="dim-item">
+        <div class="dim-value">6&#8539;"</div>
+        <div class="dim-label">Hole diameter (through wall)</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-value">~5–6"</div>
+        <div class="dim-label">Midea Duo hose outer diameter</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-value">6"</div>
+        <div class="dim-label">Rigid duct sleeve diameter</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-value">~5–6"</div>
+        <div class="dim-label">Wall depth (drywall + stud + sheathing + siding)</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Why 6&#8539;"?</div>
+      <p>A 6" rigid metal duct sleeve needs a 6&#8539;" hole — this is the industry-standard clearance that gives you just enough room to slide the sleeve through while keeping it snug enough to seal with foam and caulk. The Midea Duo's hose assembly fits inside a 6" duct.</p>
+    </div>
+
+    <div class="card">
+      <h3>Stud Bay Clearance</h3>
+      <p>Standard stud spacing is <strong>16" on center</strong>, giving you a clear bay of about <strong>14.5"</strong> between studs. Your 6&#8539;" hole fits easily with plenty of margin. Use your stud finder to locate the studs and pick the center of a bay.</p>
+    </div>
+
+    <div class="card">
+      <h3>Height Positioning</h3>
+      <p>The exhaust port on the Midea Duo is on the back of the unit, roughly <strong>12–16" off the floor</strong>. Unbox the unit first and measure the exact center of the exhaust port, then mark your hole at that height so the hose runs straight and short.</p>
+      <ul style="margin-top:0.5rem;">
+        <li>Shorter hose = better efficiency</li>
+        <li>No kinks or bends allowed</li>
+        <li>Manual says: no objects within 20" of inlet/outlet hose</li>
+        <li>Slight downward slope to exterior (¼") helps with condensation</li>
+      </ul>
+    </div>
+
+    <div class="viz-container">
+      <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+        <!-- Wall cross section showing stud bay -->
+        <rect x="50" y="20" width="500" height="240" rx="4" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
+        <text x="300" y="16" text-anchor="middle" fill="#999" font-size="12" font-family="system-ui">TOP-DOWN VIEW: Wall Stud Bay</text>
+
+        <!-- Studs -->
+        <rect x="100" y="40" width="12" height="200" fill="#8B6914" stroke="#a07818" stroke-width="1" rx="1"/>
+        <rect x="488" y="40" width="12" height="200" fill="#8B6914" stroke="#a07818" stroke-width="1" rx="1"/>
+        <text x="106" y="260" text-anchor="middle" fill="#a07818" font-size="10" font-family="system-ui">Stud</text>
+        <text x="494" y="260" text-anchor="middle" fill="#a07818" font-size="10" font-family="system-ui">Stud</text>
+
+        <!-- 16" dimension -->
+        <line x1="106" y1="36" x2="494" y2="36" stroke="#666" stroke-width="1" stroke-dasharray="4"/>
+        <text x="300" y="34" text-anchor="middle" fill="#999" font-size="11" font-family="system-ui">16" on center</text>
+
+        <!-- 14.5" clear bay -->
+        <line x1="112" y1="50" x2="488" y2="50" stroke="#4a9eff" stroke-width="1"/>
+        <line x1="112" y1="46" x2="112" y2="54" stroke="#4a9eff" stroke-width="1"/>
+        <line x1="488" y1="46" x2="488" y2="54" stroke="#4a9eff" stroke-width="1"/>
+        <text x="300" y="62" text-anchor="middle" fill="#4a9eff" font-size="10" font-family="system-ui">~14.5" clear</text>
+
+        <!-- Hole -->
+        <circle cx="300" cy="140" r="48" fill="none" stroke="#ff6b4a" stroke-width="2.5" stroke-dasharray="6,3"/>
+        <circle cx="300" cy="140" r="45" fill="#1a1a1a" opacity="0.6"/>
+        <text x="300" y="144" text-anchor="middle" fill="#ff6b4a" font-size="14" font-weight="bold" font-family="system-ui">6⅜"</text>
+        <text x="300" y="160" text-anchor="middle" fill="#ff6b4a" font-size="10" font-family="system-ui">hole</text>
+
+        <!-- Duct sleeve -->
+        <circle cx="300" cy="140" r="45" fill="none" stroke="#ccc" stroke-width="2"/>
+        <text x="390" y="110" fill="#ccc" font-size="10" font-family="system-ui">6" duct sleeve</text>
+        <line x1="348" y1="118" x2="385" y2="112" stroke="#ccc" stroke-width="0.5"/>
+
+        <!-- Insulation -->
+        <rect x="120" y="80" width="160" height="120" fill="#d4a85c" opacity="0.15" rx="2"/>
+        <rect x="320" y="80" width="160" height="120" fill="#d4a85c" opacity="0.15" rx="2"/>
+        <text x="180" y="220" text-anchor="middle" fill="#d4a85c" font-size="9" font-family="system-ui" opacity="0.6">Insulation</text>
+      </svg>
+      <div class="viz-label">Stud bay clearance — your 6⅜" hole fits comfortably in the ~14.5" clear bay</div>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="btn" onclick="goTo('overview')">&larr; Overview</button>
+      <button class="btn primary" onclick="goTo('visualize')">Next: Visualize &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== VISUALIZE ===== -->
+  <div class="section" id="visualize">
+    <h2 style="margin-bottom:1rem;">Visualize the Finished Job</h2>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="viz-cross">Cross-Section</button>
+      <button class="tab-btn" data-tab="viz-exterior">Exterior View</button>
+      <button class="tab-btn" data-tab="viz-interior">Interior (Cupboard)</button>
+      <button class="tab-btn" data-tab="viz-hose">Hose-in-Hose Detail</button>
+    </div>
+
+    <!-- Cross Section -->
+    <div class="tab-content active" id="viz-cross">
+      <div class="viz-container">
+        <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+          <text x="350" y="18" text-anchor="middle" fill="#e8e8e8" font-size="13" font-weight="bold" font-family="system-ui">CROSS-SECTION: Wall Penetration</text>
+
+          <!-- Interior label -->
+          <text x="120" y="45" text-anchor="middle" fill="#4a9eff" font-size="12" font-family="system-ui">INTERIOR (Cupboard)</text>
+          <!-- Exterior label -->
+          <text x="560" y="45" text-anchor="middle" fill="#4adf7c" font-size="12" font-family="system-ui">EXTERIOR</text>
+
+          <!-- Drywall -->
+          <rect x="230" y="60" width="16" height="300" fill="#d9d0c0" rx="1"/>
+          <text x="238" y="380" text-anchor="middle" fill="#d9d0c0" font-size="9" font-family="system-ui">Drywall</text>
+
+          <!-- Stud cavity / insulation -->
+          <rect x="246" y="60" width="130" height="300" fill="#d4a85c" opacity="0.12"/>
+          <text x="311" y="380" text-anchor="middle" fill="#d4a85c" font-size="9" font-family="system-ui">Insulation</text>
+
+          <!-- Sheathing -->
+          <rect x="376" y="60" width="14" height="300" fill="#8B7355" rx="1"/>
+          <text x="383" y="380" text-anchor="middle" fill="#8B7355" font-size="9" font-family="system-ui">Sheathing</text>
+
+          <!-- Siding (board & batten) -->
+          <rect x="390" y="60" width="20" height="300" fill="#333" rx="1"/>
+          <rect x="394" y="60" width="4" height="300" fill="#444"/>
+          <rect x="402" y="60" width="4" height="300" fill="#444"/>
+          <text x="400" y="380" text-anchor="middle" fill="#555" font-size="9" font-family="system-ui">Siding</text>
+
+          <!-- Duct sleeve through wall -->
+          <rect x="225" y="170" width="185" height="6" fill="#aaa" rx="1"/>
+          <rect x="225" y="224" width="185" height="6" fill="#aaa" rx="1"/>
+          <text x="318" y="164" text-anchor="middle" fill="#ccc" font-size="10" font-family="system-ui">6" Rigid Metal Duct Sleeve</text>
+
+          <!-- Foam sealant around sleeve (interior) -->
+          <circle cx="233" cy="173" r="6" fill="#ffdd44" opacity="0.5"/>
+          <circle cx="233" cy="227" r="6" fill="#ffdd44" opacity="0.5"/>
+          <text x="210" y="253" text-anchor="end" fill="#ffdd44" font-size="8" font-family="system-ui">Expanding foam</text>
+
+          <!-- Silicone caulk (exterior) -->
+          <circle cx="407" cy="173" r="5" fill="#88ccff" opacity="0.5"/>
+          <circle cx="407" cy="227" r="5" fill="#88ccff" opacity="0.5"/>
+          <text x="440" y="253" fill="#88ccff" font-size="8" font-family="system-ui">Silicone caulk</text>
+
+          <!-- Hose-in-hose inside duct -->
+          <!-- Outer hose -->
+          <rect x="80" y="178" width="150" height="44" rx="22" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="4"/>
+          <!-- Inner hose (exhaust) -->
+          <rect x="90" y="188" width="140" height="24" rx="12" fill="none" stroke="#ff6b4a" stroke-width="1.5"/>
+
+          <!-- Flow arrows -->
+          <text x="90" y="186" fill="#ff6b4a" font-size="8" font-family="system-ui">HOT EXHAUST &rarr;</text>
+          <text x="100" y="218" fill="#4a9eff" font-size="8" font-family="system-ui">&larr; FRESH INTAKE</text>
+
+          <!-- Arrow indicators -->
+          <polygon points="225,195 215,190 215,200" fill="#ff6b4a"/>
+          <polygon points="225,210 215,205 215,215" fill="#4a9eff" transform="rotate(180,220,210)"/>
+
+          <!-- Exterior vent cap -->
+          <rect x="408" y="155" width="50" height="90" rx="4" fill="#222" stroke="#555" stroke-width="1.5"/>
+          <rect x="412" y="159" width="42" height="20" rx="2" fill="#333"/>
+          <line x1="416" y1="180" x2="450" y2="180" stroke="#555" stroke-width="0.5"/>
+          <line x1="416" y1="185" x2="450" y2="185" stroke="#555" stroke-width="0.5"/>
+          <line x1="416" y1="190" x2="450" y2="190" stroke="#555" stroke-width="0.5"/>
+          <line x1="416" y1="195" x2="450" y2="195" stroke="#555" stroke-width="0.5"/>
+          <line x1="416" y1="200" x2="450" y2="200" stroke="#555" stroke-width="0.5"/>
+          <line x1="416" y1="205" x2="450" y2="205" stroke="#555" stroke-width="0.5"/>
+          <line x1="416" y1="210" x2="450" y2="210" stroke="#555" stroke-width="0.5"/>
+          <line x1="416" y1="215" x2="450" y2="215" stroke="#555" stroke-width="0.5"/>
+          <line x1="416" y1="220" x2="450" y2="220" stroke="#555" stroke-width="0.5"/>
+          <text x="433" y="240" text-anchor="middle" fill="#999" font-size="8" font-family="system-ui">Vent Cap</text>
+          <text x="433" y="250" text-anchor="middle" fill="#999" font-size="8" font-family="system-ui">(Black)</text>
+
+          <!-- Wall adapter plate (interior) -->
+          <rect x="218" y="160" width="14" height="80" rx="2" fill="#888" stroke="#aaa" stroke-width="1"/>
+          <text x="170" y="150" fill="#aaa" font-size="8" font-family="system-ui">Wall adapter</text>
+          <text x="170" y="160" fill="#aaa" font-size="8" font-family="system-ui">(included w/ AC)</text>
+          <line x1="200" y1="156" x2="220" y2="170" stroke="#aaa" stroke-width="0.5"/>
+
+          <!-- AC unit -->
+          <rect x="30" y="115" width="60" height="170" rx="6" fill="#222" stroke="#4a9eff" stroke-width="1.5"/>
+          <text x="60" y="205" text-anchor="middle" fill="#4a9eff" font-size="9" font-weight="bold" font-family="system-ui">Midea</text>
+          <text x="60" y="215" text-anchor="middle" fill="#4a9eff" font-size="9" font-weight="bold" font-family="system-ui">Duo</text>
+
+          <!-- Dimension: wall depth -->
+          <line x1="230" y1="280" x2="410" y2="280" stroke="#ffc64a" stroke-width="1"/>
+          <line x1="230" y1="275" x2="230" y2="285" stroke="#ffc64a" stroke-width="1"/>
+          <line x1="410" y1="275" x2="410" y2="285" stroke="#ffc64a" stroke-width="1"/>
+          <text x="320" y="296" text-anchor="middle" fill="#ffc64a" font-size="11" font-weight="bold" font-family="system-ui">~5–6" wall depth</text>
+
+          <!-- Dimension: hole -->
+          <line x1="225" y1="140" x2="225" y2="260" stroke="#ff6b4a" stroke-width="0.5" stroke-dasharray="3"/>
+          <text x="322" y="142" text-anchor="middle" fill="#ff6b4a" font-size="10" font-family="system-ui">6⅜" hole</text>
+
+          <!-- Slight downward angle note -->
+          <text x="320" y="320" text-anchor="middle" fill="#999" font-size="9" font-style="italic" font-family="system-ui">Slight downward slope (¼") toward exterior for drainage</text>
+        </svg>
+      </div>
+      <div class="viz-label">Cross-section showing wall layers, duct sleeve, hose routing, and vent cap</div>
+    </div>
+
+    <!-- Exterior View -->
+    <div class="tab-content" id="viz-exterior">
+      <div class="viz-container">
+        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+          <text x="300" y="18" text-anchor="middle" fill="#e8e8e8" font-size="13" font-weight="bold" font-family="system-ui">EXTERIOR VIEW: Taupe/Sage Board-and-Batten Siding</text>
+
+          <!-- Dark trim at top -->
+          <rect x="50" y="30" width="500" height="30" fill="#3a3a3a" rx="1"/>
+          <text x="300" y="50" text-anchor="middle" fill="#666" font-size="9" font-family="system-ui">Dark trim / fascia</text>
+
+          <!-- Siding background — warm taupe/sage green -->
+          <rect x="50" y="60" width="500" height="360" fill="#9e9a88" rx="1"/>
+
+          <!-- Vertical boards -->
+          <rect x="80" y="60" width="50" height="360" fill="#a3a08e" stroke="#8e8b7c" stroke-width="0.5"/>
+          <rect x="130" y="60" width="50" height="360" fill="#9b9885" stroke="#8e8b7c" stroke-width="0.5"/>
+          <rect x="180" y="60" width="50" height="360" fill="#a3a08e" stroke="#8e8b7c" stroke-width="0.5"/>
+          <rect x="230" y="60" width="50" height="360" fill="#9b9885" stroke="#8e8b7c" stroke-width="0.5"/>
+          <rect x="280" y="60" width="50" height="360" fill="#a3a08e" stroke="#8e8b7c" stroke-width="0.5"/>
+          <rect x="330" y="60" width="50" height="360" fill="#9b9885" stroke="#8e8b7c" stroke-width="0.5"/>
+          <rect x="380" y="60" width="50" height="360" fill="#a3a08e" stroke="#8e8b7c" stroke-width="0.5"/>
+          <rect x="430" y="60" width="50" height="360" fill="#9b9885" stroke="#8e8b7c" stroke-width="0.5"/>
+          <rect x="480" y="60" width="50" height="360" fill="#a3a08e" stroke="#8e8b7c" stroke-width="0.5"/>
+
+          <!-- Battens -->
+          <rect x="128" y="60" width="6" height="360" fill="#8e8b7c"/>
+          <rect x="178" y="60" width="6" height="360" fill="#8e8b7c"/>
+          <rect x="228" y="60" width="6" height="360" fill="#8e8b7c"/>
+          <rect x="278" y="60" width="6" height="360" fill="#8e8b7c"/>
+          <rect x="328" y="60" width="6" height="360" fill="#8e8b7c"/>
+          <rect x="378" y="60" width="6" height="360" fill="#8e8b7c"/>
+          <rect x="428" y="60" width="6" height="360" fill="#8e8b7c"/>
+          <rect x="478" y="60" width="6" height="360" fill="#8e8b7c"/>
+
+          <!-- VENT CAP - InOvate style (low profile square) — TAN to match siding -->
+          <g id="vent-ext">
+            <!-- Shadow -->
+            <rect x="262" y="282" width="80" height="80" rx="4" fill="#000" opacity="0.15"/>
+            <!-- Vent body — tan/taupe to match siding -->
+            <rect x="260" y="278" width="80" height="80" rx="4" fill="#b5b19e" stroke="#9e9a88" stroke-width="1.5"/>
+            <!-- Hood overhang -->
+            <rect x="258" y="276" width="84" height="18" rx="3" fill="#bab6a3" stroke="#9e9a88" stroke-width="1"/>
+            <!-- Screen lines -->
+            <line x1="270" y1="300" x2="330" y2="300" stroke="#9e9a88" stroke-width="0.8"/>
+            <line x1="270" y1="306" x2="330" y2="306" stroke="#9e9a88" stroke-width="0.8"/>
+            <line x1="270" y1="312" x2="330" y2="312" stroke="#9e9a88" stroke-width="0.8"/>
+            <line x1="270" y1="318" x2="330" y2="318" stroke="#9e9a88" stroke-width="0.8"/>
+            <line x1="270" y1="324" x2="330" y2="324" stroke="#9e9a88" stroke-width="0.8"/>
+            <line x1="270" y1="330" x2="330" y2="330" stroke="#9e9a88" stroke-width="0.8"/>
+            <line x1="270" y1="336" x2="330" y2="336" stroke="#9e9a88" stroke-width="0.8"/>
+            <line x1="270" y1="342" x2="330" y2="342" stroke="#9e9a88" stroke-width="0.8"/>
+            <line x1="270" y1="348" x2="330" y2="348" stroke="#9e9a88" stroke-width="0.8"/>
+            <!-- Caulk line (subtle) -->
+            <rect x="256" y="274" width="88" height="84" rx="5" fill="none" stroke="#8e8b7c" stroke-width="0.5" stroke-dasharray="2"/>
+          </g>
+
+          <!-- Label -->
+          <line x1="345" y1="318" x2="420" y2="290" stroke="#4a9eff" stroke-width="0.8"/>
+          <text x="425" y="286" fill="#4a9eff" font-size="10" font-family="system-ui">Tan vent cap (InOvate 6WVT)</text>
+          <text x="425" y="298" fill="#4a9eff" font-size="10" font-family="system-ui">(low-profile, color-matched to siding)</text>
+
+          <!-- Silicone caulk note -->
+          <line x1="256" y1="350" x2="200" y2="370" stroke="#88ccff" stroke-width="0.8"/>
+          <text x="115" y="374" fill="#88ccff" font-size="10" font-family="system-ui">Clear silicone caulk seal</text>
+
+          <!-- Inconspicuous note -->
+          <rect x="130" y="70" width="340" height="30" rx="4" fill="rgba(26,58,26,0.85)" stroke="#4adf7c" stroke-width="1"/>
+          <text x="300" y="90" text-anchor="middle" fill="#4adf7c" font-size="11" font-family="system-ui">Tan-on-taupe siding = nearly invisible from 10ft away</text>
+        </svg>
+      </div>
+      <div class="viz-label">Black vent cap on dark board-and-batten siding — designed to be inconspicuous</div>
+
+      <div class="callout">
+        <div class="callout-label">Exterior Finish Tips</div>
+        <ul style="margin-top:0.3rem;">
+          <li>Use clear silicone caulk around the flange — it won't show against dark siding</li>
+          <li>The InOvate 6WVK sits nearly flush (~1" projection) for minimum visual impact</li>
+          <li>In winter, a magnetic vent cover (cut to size) seals the opening and is equally inconspicuous</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Interior View -->
+    <div class="tab-content" id="viz-interior">
+      <div class="viz-container">
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <text x="250" y="18" text-anchor="middle" fill="#e8e8e8" font-size="13" font-weight="bold" font-family="system-ui">INTERIOR VIEW: Inside the Cupboard</text>
+
+          <!-- Cupboard outline -->
+          <rect x="50" y="30" width="400" height="460" fill="#222" stroke="#555" stroke-width="2" rx="3"/>
+
+          <!-- Back wall -->
+          <rect x="55" y="35" width="390" height="450" fill="#2a2a2a"/>
+
+          <!-- Floor -->
+          <rect x="55" y="440" width="390" height="45" fill="#3a3a3a" rx="1"/>
+          <text x="250" y="468" text-anchor="middle" fill="#666" font-size="10" font-family="system-ui">Cupboard Floor</text>
+
+          <!-- AC Unit -->
+          <rect x="140" y="270" width="130" height="168" rx="8" fill="#1a1a1a" stroke="#4a9eff" stroke-width="2"/>
+          <!-- AC top grille -->
+          <rect x="150" y="278" width="110" height="30" rx="4" fill="#222"/>
+          <line x1="155" y1="285" x2="255" y2="285" stroke="#333" stroke-width="1"/>
+          <line x1="155" y1="290" x2="255" y2="290" stroke="#333" stroke-width="1"/>
+          <line x1="155" y1="295" x2="255" y2="295" stroke="#333" stroke-width="1"/>
+          <line x1="155" y1="300" x2="255" y2="300" stroke="#333" stroke-width="1"/>
+          <!-- Display -->
+          <rect x="175" y="315" width="60" height="20" rx="3" fill="#000" stroke="#333" stroke-width="0.5"/>
+          <text x="205" y="330" text-anchor="middle" fill="#4a9eff" font-size="11" font-weight="bold" font-family="monospace">72°F</text>
+          <!-- Midea label -->
+          <text x="205" y="365" text-anchor="middle" fill="#555" font-size="12" font-weight="bold" font-family="system-ui">MIDEA</text>
+          <text x="205" y="378" text-anchor="middle" fill="#555" font-size="9" font-family="system-ui">DUO</text>
+          <!-- AC front grille -->
+          <rect x="150" y="390" width="110" height="40" rx="4" fill="#222"/>
+          <line x1="155" y1="398" x2="255" y2="398" stroke="#333" stroke-width="1"/>
+          <line x1="155" y1="404" x2="255" y2="404" stroke="#333" stroke-width="1"/>
+          <line x1="155" y1="410" x2="255" y2="410" stroke="#333" stroke-width="1"/>
+          <line x1="155" y1="416" x2="255" y2="416" stroke="#333" stroke-width="1"/>
+          <line x1="155" y1="422" x2="255" y2="422" stroke="#333" stroke-width="1"/>
+
+          <!-- Exhaust hose going to wall -->
+          <path d="M 230 370 C 280 370, 310 340, 340 310 C 370 280, 380 250, 380 220" fill="none" stroke="#666" stroke-width="18" stroke-linecap="round"/>
+          <path d="M 230 370 C 280 370, 310 340, 340 310 C 370 280, 380 250, 380 220" fill="none" stroke="#444" stroke-width="14" stroke-linecap="round"/>
+          <text x="340" y="300" fill="#ff6b4a" font-size="8" font-family="system-ui" transform="rotate(-50,340,300)">Hose-in-Hose</text>
+
+          <!-- Wall adapter plate -->
+          <rect x="350" y="195" width="60" height="60" rx="4" fill="#888" stroke="#aaa" stroke-width="1.5"/>
+          <circle cx="380" cy="225" r="22" fill="#1a1a1a" stroke="#aaa" stroke-width="1"/>
+          <text x="380" y="180" text-anchor="middle" fill="#aaa" font-size="9" font-family="system-ui">Wall Adapter</text>
+
+          <!-- Foil tape -->
+          <circle cx="380" cy="225" r="26" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="3"/>
+          <text x="420" y="260" fill="#ccc" font-size="7" font-family="system-ui">Foil tape seal</text>
+
+          <!-- Power cord to outlet -->
+          <path d="M 160 435 C 160 445, 100 450, 100 420 L 100 200" fill="none" stroke="#ffc64a" stroke-width="2" stroke-dasharray="4"/>
+          <rect x="88" y="175" width="24" height="30" rx="2" fill="#444" stroke="#ffc64a" stroke-width="1"/>
+          <text x="100" y="170" text-anchor="middle" fill="#ffc64a" font-size="8" font-family="system-ui">Outlet</text>
+
+          <!-- Airflow arrows -->
+          <!-- Cool air out top -->
+          <polygon points="205,265 195,275 215,275" fill="#4a9eff"/>
+          <text x="205" y="258" text-anchor="middle" fill="#4a9eff" font-size="8" font-family="system-ui">Cool air out</text>
+
+          <!-- Room air in bottom -->
+          <polygon points="205,440 195,432 215,432" fill="#4adf7c"/>
+          <text x="255" y="447" fill="#4adf7c" font-size="8" font-family="system-ui">Room air in</text>
+
+          <!-- Door indication -->
+          <line x1="48" y1="30" x2="30" y2="250" stroke="#555" stroke-width="2" stroke-dasharray="6"/>
+          <text x="28" y="260" fill="#555" font-size="9" font-family="system-ui" transform="rotate(-90,28,260)">Door (must be open/louvered)</text>
+        </svg>
+      </div>
+      <div class="viz-label">Interior view showing AC placement, hose routing, wall adapter, and airflow direction</div>
+    </div>
+
+    <!-- Hose-in-Hose Detail -->
+    <div class="tab-content" id="viz-hose">
+      <div class="viz-container">
+        <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+          <text x="250" y="20" text-anchor="middle" fill="#e8e8e8" font-size="13" font-weight="bold" font-family="system-ui">HOSE-IN-HOSE: Why No Backdraft Damper</text>
+
+          <!-- Outer hose cross-section -->
+          <circle cx="150" cy="160" r="70" fill="none" stroke="#666" stroke-width="4"/>
+          <text x="150" y="260" text-anchor="middle" fill="#666" font-size="11" font-family="system-ui">~5–6" outer diameter</text>
+
+          <!-- Inner hose -->
+          <circle cx="150" cy="150" r="38" fill="none" stroke="#ff6b4a" stroke-width="3"/>
+
+          <!-- Intake channel (between inner and outer) -->
+          <path d="M 150 90 A 70 70 0 0 1 220 160" fill="none" stroke="#4a9eff" stroke-width="2" stroke-dasharray="4"/>
+          <text x="225" y="120" fill="#4a9eff" font-size="10" font-family="system-ui">Fresh air IN</text>
+          <text x="225" y="132" fill="#4a9eff" font-size="9" font-family="system-ui">(outer channel)</text>
+          <polygon points="215,155 210,148 220,148" fill="#4a9eff"/>
+
+          <!-- Exhaust (inner) -->
+          <text x="150" y="155" text-anchor="middle" fill="#ff6b4a" font-size="10" font-weight="bold" font-family="system-ui">HOT</text>
+          <text x="150" y="167" text-anchor="middle" fill="#ff6b4a" font-size="10" font-weight="bold" font-family="system-ui">OUT</text>
+
+          <!-- Explanation -->
+          <rect x="280" y="70" width="200" height="180" rx="8" fill="#2a1a1a" stroke="#ff6b4a" stroke-width="1"/>
+          <text x="380" y="95" text-anchor="middle" fill="#ff6b4a" font-size="11" font-weight="bold" font-family="system-ui">NO Backdraft Damper!</text>
+          <text x="295" y="120" fill="#e8e8e8" font-size="10" font-family="system-ui">A damper would block the</text>
+          <text x="295" y="135" fill="#e8e8e8" font-size="10" font-family="system-ui">intake airflow, crippling</text>
+          <text x="295" y="150" fill="#e8e8e8" font-size="10" font-family="system-ui">the Duo's efficiency.</text>
+          <text x="295" y="175" fill="#4adf7c" font-size="10" font-weight="bold" font-family="system-ui">Instead use:</text>
+          <text x="295" y="195" fill="#e8e8e8" font-size="10" font-family="system-ui">&#8226; Screen-only vent cap</text>
+          <text x="295" y="212" fill="#e8e8e8" font-size="10" font-family="system-ui">&#8226; OR remove the damper</text>
+          <text x="295" y="229" fill="#e8e8e8" font-size="10" font-family="system-ui">&#8226; Magnetic cover in winter</text>
+
+          <!-- Cross section label -->
+          <text x="150" y="55" text-anchor="middle" fill="#999" font-size="10" font-style="italic" font-family="system-ui">Hose cross-section</text>
+        </svg>
+      </div>
+      <div class="viz-label">The Midea Duo's hose-in-hose design requires bidirectional airflow — no backdraft damper</div>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="btn" onclick="goTo('measurements')">&larr; Measurements</button>
+      <button class="btn primary" onclick="goTo('vent-caps')">Next: Vent Caps &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== VENT CAPS ===== -->
+  <div class="section" id="vent-caps">
+    <h2 style="margin-bottom:1rem;">Choose Your Vent Cap</h2>
+
+    <!-- Exterior wall reference photo -->
+    <div class="photo-card">
+      <img src="images/exterior-wall.jpg" alt="Your exterior wall" style="max-height:300px;">
+      <div class="caption">Your exterior wall — warm taupe/sage board-and-batten. The vent cap goes somewhere on this wall below the existing small vents. Note the dark trim and gutters as accent elements.</div>
+    </div>
+
+    <div class="callout" style="margin-bottom:1rem;">
+      <div class="callout-label">Updated Color Recommendation</div>
+      <p>Now that I can see your actual wall, the siding is <strong>warm taupe/sage-green</strong> — not dark. Two strategies:</p>
+      <ul style="margin-top:0.5rem;">
+        <li><strong>Best for invisibility:</strong> InOvate 6WVT (<strong>Tan</strong>) — closest match to siding color, will virtually disappear</li>
+        <li><strong>Also works:</strong> InOvate 6WVK (<strong>Black</strong>) — matches dark trim/gutters, looks intentional but more visible on the siding itself</li>
+        <li><strong>Avoid:</strong> White — your existing vents are white and they stand out noticeably</li>
+      </ul>
+    </div>
+
+    <p style="color:var(--text-dim); margin-bottom:1rem;">Tap any option below to see full details, photos, and dimensions.</p>
+
+    <!-- Side-by-side product photo comparison -->
+    <div class="comparison-row" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+      <div class="comparison-item recommended" data-vent="inovate-tan" onclick="selectVent(this)">
+        <img src="images/products/inovate-6wvt-tan.jpg" alt="InOvate 6WVT Tan">
+        <div class="info">
+          <h4>InOvate 6WVT — Tan</h4>
+          <div class="price">~$50–60</div>
+          <div class="desc">Closest match to your siding color. Low-profile, nearly invisible.</div>
+        </div>
+      </div>
+      <div class="comparison-item" data-vent="inovate" onclick="selectVent(this)">
+        <img src="images/products/inovate-6wvk-black.jpg" alt="InOvate 6WVK Black">
+        <div class="info">
+          <h4>InOvate 6WVK — Black</h4>
+          <div class="price">~$50–60</div>
+          <div class="desc">Matches dark trim/gutters. Visible on siding but looks intentional.</div>
+        </div>
+      </div>
+      <div class="comparison-item" data-vent="broan" onclick="selectVent(this)">
+        <img src="images/products/broan-843bl-black.jpg" alt="Broan-NuTone 843BL Black">
+        <div class="info">
+          <h4>Broan 843BL — Black</h4>
+          <div class="price">~$20–25</div>
+          <div class="desc">Steel hooded cap. Projects ~4" from wall. Same-day at Home Depot.</div>
+        </div>
+      </div>
+      <div class="comparison-item" data-vent="broan" onclick="selectVent(this)">
+        <img src="images/products/broan-843bl-angle.jpg" alt="Broan-NuTone 843BL front view">
+        <div class="info">
+          <h4>843BL — Front View</h4>
+          <div class="price"></div>
+          <div class="desc">Mesh screen and hood depth. 24-gauge steel, black epoxy.</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color:var(--text-dim); margin-top:0.3rem; text-align:center;">Compare the tan InOvate to your siding — it's a very close color match</p>
+
+    <div class="vent-options" style="margin-top:1rem; grid-template-columns: 1fr 1fr;">
+      <div class="vent-option selected" data-vent="inovate-tan" onclick="selectVent(this)">
+        <div class="badge">Best Match for Your Wall</div>
+        <h4>InOvate 6WVT — Tan</h4>
+        <div class="price">~$50–60</div>
+        <div class="desc">Same premium low-profile InOvate in tan. Closest color match to your taupe/sage siding — will nearly disappear. Galvalume steel, powder-coated.</div>
+      </div>
+      <div class="vent-option" data-vent="inovate" onclick="selectVent(this)">
+        <h4>InOvate 6WVK — Black</h4>
+        <div class="price">~$50–60</div>
+        <div class="desc">Same premium unit in black. Matches your dark trim/gutters. More visible on the siding but looks clean and intentional.</div>
+      </div>
+      <div class="vent-option" data-vent="famco" onclick="selectVent(this)">
+        <h4>FAMCO WVEBH6BK — Black</h4>
+        <div class="price">~$35–45</div>
+        <div class="desc">Traditional hooded style. 24-gauge galvanized steel, black powder coat. Big mouth hood. Projects ~4-5" from wall.</div>
+      </div>
+      <div class="vent-option" data-vent="broan" onclick="selectVent(this)">
+        <h4>Broan-NuTone 843BL — Black</h4>
+        <div class="price">~$20–25</div>
+        <div class="desc">Steel hooded cap (24-gauge, black epoxy). Same-day from Home Depot. Projects ~4" from wall.</div>
+      </div>
+    </div>
+
+    <!-- Vent detail cards -->
+    <div id="vent-detail-inovate-tan" class="card" style="margin-top:1rem;">
+      <h3>InOvate 6WVT Premium Wall Vent — Tan (Recommended)</h3>
+
+      <div class="img-grid">
+        <div>
+          <div class="product-img-wrap">
+            <img src="images/products/inovate-6wvt-tan.jpg" alt="InOvate 6WVT Tan">
+          </div>
+          <div class="img-caption">InOvate 6WVT Tan — same build as black, color-matched to your siding</div>
+        </div>
+        <div>
+          <div class="product-img-wrap">
+            <img src="images/exterior-wall.jpg" alt="Your exterior wall for color comparison">
+          </div>
+          <div class="img-caption">Your wall — the tan powder coat is a close match to this siding tone</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:0.8rem;">
+        <div class="callout-label">Why Tan Is the Best Match</div>
+        <p>Looking at your actual siding color (warm taupe/sage-green), the tan InOvate is the closest match in their lineup. With only ~1" projection and an 8.5" square face, it'll blend right into the board-and-batten. Compare this to the existing white vents on your wall which are quite visible — this will be far more subtle.</p>
+      </div>
+
+      <div class="dim-grid" style="margin-top:1rem;">
+        <div class="dim-item">
+          <div class="dim-value">8.514"</div>
+          <div class="dim-label">Face width & height</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-value">6" ID</div>
+          <div class="dim-label">Internal duct diameter</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-value">~1"</div>
+          <div class="dim-label">Wall projection</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-value">5.95"</div>
+          <div class="dim-label">Outer diameter (collar)</div>
+        </div>
+      </div>
+
+      <ul style="margin-top:0.8rem;">
+        <li><strong>Identical specs to the black 6WVK</strong> — same Galvalume steel, same dimensions, just tan powder coat</li>
+        <li><strong>Damper:</strong> Pin open for Midea Duo's bidirectional airflow</li>
+        <li><strong>Screen:</strong> Removable galvanized wire screen keeps pests out</li>
+        <li><strong>Made in USA</strong></li>
+      </ul>
+      <p style="margin-top:0.8rem;">
+        <a href="https://www.amazon.com/InOvate-Premium-Wall-Vent-Collar/dp/B0CY5RQ1S1" target="_blank" class="product-link">View Tan on Amazon</a>
+        &nbsp;
+        <a href="https://premiumwallvent.com/" target="_blank" class="product-link">Manufacturer Site</a>
+      </p>
+    </div>
+
+    <div id="vent-detail-inovate" class="card" style="margin-top:1rem; display:none;">
+      <h3>InOvate 6WVK Premium Wall Vent — Black</h3>
+
+      <div class="img-grid">
+        <div>
+          <div class="product-img-wrap">
+            <img src="images/products/inovate-6wvk-black.jpg" alt="InOvate 6WVK Black - product photo">
+          </div>
+          <div class="img-caption">InOvate 6WVK Black — damper shown open, screen visible</div>
+        </div>
+        <div>
+          <div class="product-img-wrap">
+            <img src="images/products/inovate-spec.jpg" alt="InOvate 6WV spec sheet">
+          </div>
+          <div class="img-caption">Manufacturer spec sheet — low-profile design, Galvalume steel</div>
+        </div>
+      </div>
+
+      <!-- Dimensional spec sheet -->
+      <div style="margin:1rem 0;">
+        <div class="product-img-wrap spec">
+          <img src="images/products/inovate-spec2.jpg" alt="InOvate 6WV technical specifications with dimensions">
+        </div>
+        <div class="img-caption">Technical dimensions: 8.514" × 8.514" face, 6" ID, 1.04" housing + 1.3" damper projection, O.D. 5.95"</div>
+      </div>
+
+      <div class="dim-grid" style="margin-top:1rem;">
+        <div class="dim-item">
+          <div class="dim-value">8.514"</div>
+          <div class="dim-label">Face width & height</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-value">6" ID</div>
+          <div class="dim-label">Internal duct diameter</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-value">~1"</div>
+          <div class="dim-label">Wall projection (housing)</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-value">5.95"</div>
+          <div class="dim-label">Outer diameter (collar)</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:1rem;">
+        <div class="callout-label">Why This Is the Best Match for Your House</div>
+        <p>The 6WVK sits nearly flush against the wall with only ~1" projection. On dark board-and-batten siding, the black powder-coated Galvalume steel will be virtually invisible. The 8.5" square face is compact — smaller than a standard outlet cover. The 26-gauge steel housing with powder coat won't fade, rust, or look cheap over time like plastic alternatives.</p>
+      </div>
+
+      <ul style="margin-top:0.8rem;">
+        <li><strong>Material:</strong> 26-gauge Galvalume steel housing, 30-gauge Galvalume damper, polyester TGIC powder coating</li>
+        <li><strong>Screen:</strong> Removable galvanized .025" dia. wire screen</li>
+        <li><strong>Damper:</strong> Gravity-assist, opens to 130° — pin open for Midea Duo's bidirectional airflow</li>
+        <li><strong>Mounting:</strong> 4 built-in mounting holes (0.219" dia.)</li>
+        <li><strong>Made in USA</strong> (Jupiter, FL)</li>
+      </ul>
+      <p style="margin-top:0.8rem;">
+        <a href="https://www.amazon.com/PremiumWallVent-InOvate-Premium-Collar-Black/dp/B0CY69DTCS" target="_blank" class="product-link">View on Amazon</a>
+        &nbsp;
+        <a href="https://premiumwallvent.com/" target="_blank" class="product-link">Manufacturer Site</a>
+        &nbsp;
+        <a href="https://www.hvacquick.com/products/residential/Bathroom-Ventilation/Discharge-Caps/InOvate-6WV-Series-Premium-Wall-Vents" target="_blank" class="product-link">HVACQuick</a>
+      </p>
+    </div>
+
+    <div id="vent-detail-famco" class="card" style="margin-top:1rem; display:none;">
+      <h3>FAMCO WVEBH6BK Hooded Wall Vent — Black</h3>
+      <p style="color:var(--text-dim); margin-bottom:0.5rem; font-size:0.85rem;">Similar hooded style to the Broan 843BL below, but heavier-gauge construction with powder coat (vs. epoxy). Larger hood mouth for better airflow.</p>
+      <ul>
+        <li><strong>Material:</strong> 24-gauge G90 galvanized steel, black powder coat finish</li>
+        <li><strong>Hood:</strong> "Big mouth" design — less airflow restriction than standard hoods</li>
+        <li><strong>Features:</strong> Spring-loaded backdraft damper, gasket, removable ¼" bird screen</li>
+        <li><strong>Warranty:</strong> 1 year, Made in USA</li>
+        <li><strong>Profile:</strong> Traditional hooded — projects ~4–5" from wall (more visible than InOvate)</li>
+        <li><strong>Note:</strong> Remove the spring-loaded damper for the Midea Duo's bidirectional hose</li>
+        <li><strong>Best for:</strong> Maximum airflow, heavy-duty construction, moderate price</li>
+      </ul>
+      <p style="margin-top:0.8rem;">
+        <a href="https://www.famcomfg.com/product/hooded-wall-vent-screen-damper-spring-gasket-hd-powder-coat-black-6-inch/" target="_blank" class="product-link">View at FAMCO</a>
+        &nbsp;
+        <a href="https://www.amazon.com/FAMCO-Hooded-Exhaust-Applications-Galvanized/dp/B0BZQKG3XN" target="_blank" class="product-link">View on Amazon</a>
+      </p>
+    </div>
+
+    <div id="vent-detail-broan" class="card" style="margin-top:1rem; display:none;">
+      <h3>Broan-NuTone 843BL Steel Wall Cap — Black</h3>
+
+      <div class="img-grid">
+        <div>
+          <div class="product-img-wrap">
+            <img src="images/products/broan-843bl-black.jpg" alt="Broan 843BL side view">
+          </div>
+          <div class="img-caption">Side/rear view — duct collar and mounting flange</div>
+        </div>
+        <div>
+          <div class="product-img-wrap">
+            <img src="images/products/broan-843bl-angle.jpg" alt="Broan 843BL front view">
+          </div>
+          <div class="img-caption">Front view — mesh screen and hood depth</div>
+        </div>
+      </div>
+
+      <ul style="margin-top:0.8rem;">
+        <li><strong>Material:</strong> 24-gauge steel, black electrically-bonded epoxy (NOT plastic — corrected)</li>
+        <li><strong>Duct size:</strong> 6" round</li>
+        <li><strong>Features:</strong> Backdraft damper + bird screen — remove damper for Duo</li>
+        <li><strong>Profile:</strong> Traditional hooded — projects ~4" from wall</li>
+        <li><strong>Availability:</strong> Same-day at Home Depot</li>
+        <li><strong>Best for:</strong> Budget-conscious, need-it-today. Solid steel at lowest price.</li>
+      </ul>
+      <p style="margin-top:0.8rem;">
+        <a href="https://www.homedepot.com/p/Broan-NuTone-Wall-Cap-for-6-in-Round-Duct-for-Range-Hoods-and-Bath-Ventilation-Fans-in-Black-843BL/206479562" target="_blank" class="product-link">View at Home Depot</a>
+        &nbsp;
+        <a href="https://www.amazon.com/Nutone-843BL-Broan-Black-Round/dp/B001E6LBDY" target="_blank" class="product-link">Amazon</a>
+        &nbsp;
+        <a href="https://broan-nutone.com/en-us/accessory/843bl" target="_blank" class="product-link">Official</a>
+      </p>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="btn" onclick="goTo('visualize')">&larr; Visualize</button>
+      <button class="btn primary" onclick="goTo('tools')">Next: Tools &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== TOOLS ===== -->
+  <div class="section" id="tools">
+    <h2 style="margin-bottom:1rem;">Best Tools for the Job</h2>
+
+    <div class="callout info">
+      <div class="callout-label">Key Insight</div>
+      <p>A <strong>6⅜" hole saw</strong> is the game-changer. It cuts a perfect circle in one shot — way cleaner than tracing freehand with an oscillating tool. Drill from inside through drywall, pilot bit punches through to locate the outside, then drill from outside through sheathing/siding. Two passes, one perfectly aligned hole.</p>
+    </div>
+
+    <h3 style="margin:1rem 0 0.5rem; color:var(--accent);">The Main Cut: Hole Saw Options</h3>
+
+    <!-- Side by side hole saw photos -->
+    <div class="img-grid">
+      <div>
+        <div class="product-img-wrap">
+          <img src="images/products/klein-31900-holesaw.jpg" alt="Klein Tools 31900 6-3/8 inch hole saw">
+        </div>
+        <div class="img-caption">Klein Tools 31900 — bi-metal, cuts everything including steel</div>
+      </div>
+      <div>
+        <div class="product-img-wrap">
+          <img src="images/products/milwaukee-holesaw.jpg" alt="Milwaukee 6-3/8 inch carbide hole saw">
+        </div>
+        <div class="img-caption">Milwaukee 49-56-0305 — carbide grit, includes pilot bit</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-header">
+        <div>
+          <div class="product-name">Klein Tools 31900 — 6⅜" Bi-Metal Hole Saw</div>
+          <div class="product-desc">Pro-grade. Heavy-duty 5-mil back plate. Cuts drywall, wood, plastic, stainless steel. Needs a separate arbor (Klein 31906 or universal ½" arbor).</div>
+        </div>
+        <span class="product-price">~$50</span>
+      </div>
+      <a href="https://www.homedepot.com/p/Klein-Tools-6-3-8-in-Bi-Metal-Hole-Saw-31900/206079513" target="_blank" class="product-link">Home Depot</a>
+      &nbsp;
+      <a href="https://www.kleintools.com/catalog/hole-saws/bi-metal-hole-saw-6-38-inch" target="_blank" class="product-link">Klein Tools</a>
+    </div>
+
+    <div class="product">
+      <div class="product-header">
+        <div>
+          <div class="product-name">Milwaukee 49-56-0305 — 6⅜" Carbide Recessed Light Hole Saw</div>
+          <div class="product-desc">Comes with its own pilot bit — no separate arbor needed. Continuous carbide grit edge cuts drywall, plaster, wood, stucco. Easiest all-in-one option.</div>
+        </div>
+        <span class="product-price">~$50</span>
+      </div>
+      <a href="https://www.milwaukeetool.com/products/details/6-3-8-recessed-light-carbide-grit-hole-saw-with-pilot-bit/49-56-0305" target="_blank" class="product-link">Milwaukee Tool</a>
+      &nbsp;
+      <a href="https://www.homedepot.com/p/Milwaukee-6-3-8-in-Carbide-Recessed-Light-Hole-Saw-With-Pilot-Bit-49-56-0963/319267034" target="_blank" class="product-link">Home Depot</a>
+    </div>
+
+    <div class="product">
+      <div class="product-header">
+        <div>
+          <div class="product-name">Budget 6⅜" HSS Bi-Metal Hole Saw + Arbor</div>
+          <div class="product-desc">Includes arbor and spring for disc ejection. Gets the job done for a one-time cut. No frills.</div>
+        </div>
+        <span class="product-price">~$18</span>
+      </div>
+      <a href="https://www.amazon.com/s?k=6+3%2F8+hole+saw+bi-metal+arbor" target="_blank" class="product-link">Search Amazon</a>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">Check Your Drill Chuck</div>
+      <p>Larger hole saws (6⅜") typically need a <strong>½" chuck</strong>. If your drill has a ⅜" chuck, the arbor won't fit. Check before you buy! Most cordless drills are ½" chuck but some smaller ones aren't.</p>
+    </div>
+
+    <h3 style="margin:1.5rem 0 0.5rem; color:var(--accent);">Supporting Tools</h3>
+
+    <div class="product">
+      <div class="product-header">
+        <div>
+          <div class="product-name">Your Oscillating Multi-Tool</div>
+          <div class="product-desc">Backup for cleanup/trimming around the hole. Also useful if you need to notch the siding around the vent cap flange.</div>
+        </div>
+        <span class="product-price">Already own</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-header">
+        <div>
+          <div class="product-name">Oscillating Tool Blade Pack (Drywall + Wood)</div>
+          <div class="product-desc">Dremel MM450B 3-pack — cuts both drywall and wood, universal mount fits most brands.</div>
+        </div>
+        <span class="product-price">~$12</span>
+      </div>
+      <a href="https://www.amazon.com/s?k=Dremel+MM450B+oscillating+blade" target="_blank" class="product-link">Amazon</a>
+    </div>
+
+    <div class="product">
+      <div class="product-header">
+        <div>
+          <div class="product-name">Stud Finder</div>
+          <div class="product-desc">You have this. Use wire detection mode — there's an outlet in the cupboard so there ARE wires in this wall.</div>
+        </div>
+        <span class="product-price">Already own</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-header">
+        <div>
+          <div class="product-name">Tin Snips or Aviation Snips</div>
+          <div class="product-desc">To cut the 6" rigid metal duct pipe to your wall depth (~5–6"). If you don't have these, a hacksaw works too.</div>
+        </div>
+        <span class="product-price">~$10–15 if needed</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-header">
+        <div>
+          <div class="product-name">Caulk Gun</div>
+          <div class="product-desc">Needed for the GE silicone tube. Standard size fits. Check if you have one already.</div>
+        </div>
+        <span class="product-price">~$5–10 if needed</span>
+      </div>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="btn" onclick="goTo('vent-caps')">&larr; Vent Caps</button>
+      <button class="btn primary" onclick="goTo('materials')">Next: Materials &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== MATERIALS ===== -->
+  <div class="section" id="materials">
+    <h2 style="margin-bottom:1rem;">Complete Materials List</h2>
+
+    <div class="card">
+      <h3>Home Depot Run (One Trip)</h3>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;margin-top:0.5rem;">
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.5rem 0.5rem 0.5rem 0;font-weight:600;">6" × 2ft Round Metal Duct Pipe</td>
+            <td style="padding:0.5rem;color:var(--text-dim);">Wall sleeve — cut to ~6" with tin snips</td>
+            <td style="padding:0.5rem;text-align:right;white-space:nowrap;color:var(--success);">~$7</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.5rem 0.5rem 0.5rem 0;font-weight:600;">Great Stuff Gaps & Cracks Foam</td>
+            <td style="padding:0.5rem;color:var(--text-dim);">Seal around duct sleeve (interior side)</td>
+            <td style="padding:0.5rem;text-align:right;white-space:nowrap;color:var(--success);">~$5</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.5rem 0.5rem 0.5rem 0;font-weight:600;">GE Advanced Silicone 2 (Clear)</td>
+            <td style="padding:0.5rem;color:var(--text-dim);">Seal vent cap flange to siding (exterior)</td>
+            <td style="padding:0.5rem;text-align:right;white-space:nowrap;color:var(--success);">~$12</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.5rem 0.5rem 0.5rem 0;font-weight:600;">Nashua 322 HVAC Foil Tape</td>
+            <td style="padding:0.5rem;color:var(--text-dim);">Seal duct connections (way better than duct tape)</td>
+            <td style="padding:0.5rem;text-align:right;white-space:nowrap;color:var(--success);">~$6</td>
+          </tr>
+          <tr>
+            <td style="padding:0.5rem 0.5rem 0.5rem 0;font-weight:600;">Caulk Gun</td>
+            <td style="padding:0.5rem;color:var(--text-dim);">If you don't already have one</td>
+            <td style="padding:0.5rem;text-align:right;white-space:nowrap;color:var(--success);">~$5</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Order Online</h3>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;margin-top:0.5rem;">
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.5rem 0.5rem 0.5rem 0;font-weight:600;">InOvate 6WVK Vent Cap (Black)</td>
+            <td style="padding:0.5rem;color:var(--text-dim);">Premium exterior vent — <a href="https://www.amazon.com/PremiumWallVent-InOvate-Premium-Collar-Black/dp/B0CY69DTCS" target="_blank">Amazon</a></td>
+            <td style="padding:0.5rem;text-align:right;white-space:nowrap;color:var(--success);">~$55</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.5rem 0.5rem 0.5rem 0;font-weight:600;">6⅜" Hole Saw</td>
+            <td style="padding:0.5rem;color:var(--text-dim);">Milwaukee or Klein — also at Home Depot</td>
+            <td style="padding:0.5rem;text-align:right;white-space:nowrap;color:var(--success);">~$18–50</td>
+          </tr>
+          <tr>
+            <td style="padding:0.5rem 0.5rem 0.5rem 0;font-weight:600;">Frost King Magnetic Vent Covers</td>
+            <td style="padding:0.5rem;color:var(--text-dim);">8"×15" 3-pack — cut to size for winter seal</td>
+            <td style="padding:0.5rem;text-align:right;white-space:nowrap;color:var(--success);">~$8</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, #1a2e1a, #1e3a2f); border-color: var(--success);">
+      <h3 style="color:var(--success);">Total Estimated Cost</h3>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.5rem;">
+        <div>
+          <div style="font-size:0.9rem; color:var(--text-dim);">Budget path (budget hole saw + Broan vent)</div>
+          <div style="font-size:1.5rem; font-weight:800; color:var(--success);">~$75</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:0.9rem; color:var(--text-dim);">Premium path (Milwaukee + InOvate)</div>
+          <div style="font-size:1.5rem; font-weight:800; color:var(--success);">~$140</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="btn" onclick="goTo('tools')">&larr; Tools</button>
+      <button class="btn primary" onclick="goTo('walkthrough')">Next: Walkthrough &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== WALKTHROUGH ===== -->
+  <div class="section" id="walkthrough">
+    <h2 style="margin-bottom:1rem;">Step-by-Step Walkthrough</h2>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">0</span><h3>Prep & Clear the Cupboard</h3></div>
+      <ul>
+        <li>Remove the HOTAS shelf and all gear — you need clear access to the back wall</li>
+        <li>Unbox the Midea Duo and measure the exact height of the exhaust port from the floor</li>
+        <li>Decide if the shelf goes back above the unit later or gets removed (unit is 32.5" tall)</li>
+        <li>Lay down a drop cloth — drywall dust gets everywhere</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">1</span><h3>Locate Your Cut Point</h3></div>
+      <ul>
+        <li><strong>Stud finder:</strong> Map the studs behind the drywall. Use wire detection mode — the outlet means wires exist in this wall</li>
+        <li><strong>Pick a stud bay:</strong> Center your hole in a bay (~14.5" clear). The 6⅜" hole fits with plenty of margin</li>
+        <li><strong>Mark the height:</strong> Match the center of the Midea's exhaust port (roughly 12–16" from floor — measure your unit!)</li>
+        <li><strong>Mark the circle:</strong> Trace around the hole saw pilot point, or use a compass at 3-3/16" radius</li>
+      </ul>
+      <div class="callout warn" style="margin-top:0.8rem;">
+        <div class="callout-label">Watch Out</div>
+        <p>Scan for wires AND plumbing. The outlet in the cupboard means electrical runs through this wall. Stay well clear — at least 1.5" from any detected wires.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">2</span><h3>Cut from Inside (Drywall)</h3></div>
+      <ul>
+        <li>Mount the 6⅜" hole saw on your drill</li>
+        <li>Position the pilot bit on your center mark</li>
+        <li>Drill slowly and steadily through the drywall — the hole saw does the work, don't force it</li>
+        <li>The pilot bit will punch through the entire wall — this is your alignment point for the outside</li>
+        <li>Pull out the drywall disc</li>
+        <li>Clear any insulation from the cavity</li>
+        <li>If your hole saw can't reach through the full wall depth, that's fine — you'll finish from outside</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">3</span><h3>Cut from Outside (Sheathing + Siding)</h3></div>
+      <ul>
+        <li>Go outside and find the pilot hole from Step 2</li>
+        <li>Center the hole saw pilot bit in the pilot hole</li>
+        <li>Drill through the sheathing (OSB/plywood) and siding with the same hole saw</li>
+        <li>For board-and-batten, go slowly on the visible surface</li>
+        <li>If the siding is too thick for the hole saw, use your oscillating multi-tool to finish the cut</li>
+        <li><strong>Angle tip:</strong> Very slight downward slope (¼") toward exterior helps with condensation drainage</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">4</span><h3>Install the Duct Sleeve</h3></div>
+      <ul>
+        <li>Measure your wall depth (drywall face to siding face)</li>
+        <li>Cut the 6" rigid metal duct to that length with tin snips or hacksaw</li>
+        <li>Insert the sleeve through the hole from inside</li>
+        <li>It should sit flush or very slightly proud on both sides</li>
+        <li><strong>Interior seal:</strong> Apply expanding foam around the sleeve where it meets the drywall — fill the gap completely</li>
+        <li>Let the foam cure, then trim flush with a utility knife</li>
+      </ul>
+      <div class="callout" style="margin-top:0.8rem;">
+        <div class="callout-label">Why the Metal Sleeve?</div>
+        <p>The Midea's exhaust air carries humidity. Without a metal sleeve, that moist air would contact exposed wood framing inside the wall, eventually causing rot. The sleeve protects the wood and creates a clean, sealed passage.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">5</span><h3>Mount the Exterior Vent Cap</h3></div>
+      <ul>
+        <li>Apply a bead of clear silicone caulk around the duct opening on the exterior wall</li>
+        <li>Press the vent cap flange into the caulk</li>
+        <li>Secure with stainless steel screws (included with most vents) into the sheathing/siding</li>
+        <li>Apply another bead of caulk around the outside edge of the flange</li>
+        <li>Smooth with a wet finger for a clean line</li>
+        <li><strong>For InOvate 6WVK:</strong> Pin or remove the damper so the Duo's intake airflow isn't blocked</li>
+        <li><strong>For FAMCO/Broan:</strong> Remove the backdraft damper entirely, keep the screen</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">6</span><h3>Seal the Interior Connection</h3></div>
+      <ul>
+        <li>Attach the Midea Duo's included wall exhaust adapter to the interior face of the duct sleeve</li>
+        <li>Seal the connection with HVAC foil tape — wrap it tight, no gaps</li>
+        <li>Connect the hose-in-hose assembly from the AC unit to the wall adapter</li>
+        <li>Keep the hose as short and straight as possible — no kinks, no extensions</li>
+        <li>Verify no objects within 20" of the inlet and outlet per the manual</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">7</span><h3>Test & Commission</h3></div>
+      <ul>
+        <li>Plug in the Midea Duo</li>
+        <li>Turn it on and run for 10 minutes</li>
+        <li>Go outside — verify you feel hot exhaust from the vent</li>
+        <li>Check inside for any air leaks around the wall adapter (feel with your hand)</li>
+        <li>If any leaks, add more foil tape</li>
+        <li>Check that cool air is flowing out the top of the unit into the room</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">8</span><h3>Cupboard Ventilation (Don't Skip!)</h3></div>
+      <ul>
+        <li>The AC pulls room air in from the front grille and blows cooled air out the top</li>
+        <li>If cupboard doors are closed, it recirculates a tiny air volume and overheats</li>
+        <li><strong>Option A:</strong> Remove the doors entirely</li>
+        <li><strong>Option B:</strong> Install louvered doors</li>
+        <li><strong>Option C:</strong> Cut vent openings (top and bottom) into existing doors</li>
+        <li>Top vent lets cool air out; bottom vent lets room air in</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">9</span><h3>Winter Seal</h3></div>
+      <ul>
+        <li>When the AC season is over, disconnect the hose from the wall adapter</li>
+        <li>Cut a magnetic vent cover to size (slightly larger than the vent cap)</li>
+        <li>Stick it over the exterior vent — the magnet holds it against the steel vent cap</li>
+        <li>Pops on/off in seconds, costs ~$3, and is barely visible on dark siding</li>
+      </ul>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="btn" onclick="goTo('materials')">&larr; Materials</button>
+      <button class="btn primary" onclick="goTo('checklist')">Next: Checklist &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== CHECKLIST ===== -->
+  <div class="section" id="checklist">
+    <h2 style="margin-bottom:1rem;">Pre-Job Checklist</h2>
+
+    <div class="card">
+      <h3>Before You Start</h3>
+      <ul class="checklist">
+        <li><input type="checkbox" id="c1"><label for="c1">Midea Duo unboxed and exhaust port height measured</label></li>
+        <li><input type="checkbox" id="c2"><label for="c2">Cupboard cleared — shelf and gear removed</label></li>
+        <li><input type="checkbox" id="c3"><label for="c3">Studs located and marked with stud finder</label></li>
+        <li><input type="checkbox" id="c4"><label for="c4">Scanned for wires (wire detection mode on stud finder)</label></li>
+        <li><input type="checkbox" id="c5"><label for="c5">Hole center marked — centered in stud bay, aligned with exhaust port</label></li>
+        <li><input type="checkbox" id="c6"><label for="c6">Drill chuck is ½" (fits hole saw arbor)</label></li>
+        <li><input type="checkbox" id="c7"><label for="c7">Drop cloth down for dust</label></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Materials Acquired</h3>
+      <ul class="checklist">
+        <li><input type="checkbox" id="m1"><label for="m1">6⅜" hole saw (+ arbor if needed)</label></li>
+        <li><input type="checkbox" id="m2"><label for="m2">6" × 2ft rigid metal duct pipe</label></li>
+        <li><input type="checkbox" id="m3"><label for="m3">Black vent cap (InOvate / FAMCO / Broan)</label></li>
+        <li><input type="checkbox" id="m4"><label for="m4">Great Stuff expanding foam</label></li>
+        <li><input type="checkbox" id="m5"><label for="m5">GE silicone caulk (clear) + caulk gun</label></li>
+        <li><input type="checkbox" id="m6"><label for="m6">Nashua HVAC foil tape</label></li>
+        <li><input type="checkbox" id="m7"><label for="m7">Magnetic vent covers (for winter)</label></li>
+        <li><input type="checkbox" id="m8"><label for="m8">Tin snips or hacksaw (for cutting duct)</label></li>
+        <li><input type="checkbox" id="m9"><label for="m9">Oscillating tool blades (drywall + wood)</label></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Job Steps</h3>
+      <ul class="checklist">
+        <li><input type="checkbox" id="s1"><label for="s1">Step 1: Studs located, hole position marked</label></li>
+        <li><input type="checkbox" id="s2"><label for="s2">Step 2: Interior drywall cut (hole saw from inside)</label></li>
+        <li><input type="checkbox" id="s3"><label for="s3">Step 3: Exterior cut (sheathing + siding from outside)</label></li>
+        <li><input type="checkbox" id="s4"><label for="s4">Step 4: Duct sleeve cut to length and inserted</label></li>
+        <li><input type="checkbox" id="s5"><label for="s5">Step 5: Interior sealed with expanding foam</label></li>
+        <li><input type="checkbox" id="s6"><label for="s6">Step 6: Exterior vent cap mounted and caulked</label></li>
+        <li><input type="checkbox" id="s7"><label for="s7">Step 7: Damper removed/pinned open on vent cap</label></li>
+        <li><input type="checkbox" id="s8"><label for="s8">Step 8: Wall adapter attached and foil-taped</label></li>
+        <li><input type="checkbox" id="s9"><label for="s9">Step 9: Hose connected — short and straight</label></li>
+        <li><input type="checkbox" id="s10"><label for="s10">Step 10: Test run — feel exhaust outside, check for leaks</label></li>
+        <li><input type="checkbox" id="s11"><label for="s11">Step 11: Cupboard ventilation solved (doors open/louvered/vented)</label></li>
+      </ul>
+    </div>
+
+    <div class="card" style="text-align:center; padding:2rem;">
+      <h3 style="color:var(--success); font-size:1.3rem;">You've Got This!</h3>
+      <p style="color:var(--text-dim); margin-top:0.5rem;">One hole, one afternoon, many cool Nashville summers ahead.</p>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="btn" onclick="goTo('walkthrough')">&larr; Walkthrough</button>
+      <span></span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Navigation
+  const navBtns = document.querySelectorAll('.nav button');
+  const sections = document.querySelectorAll('.section');
+
+  function goTo(id) {
+    sections.forEach(s => s.classList.remove('active'));
+    navBtns.forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelector(`.nav button[data-section="${id}"]`).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => goTo(btn.dataset.section));
+  });
+
+  // Tabs within sections
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parent = btn.closest('.section');
+      parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Vent selection
+  function selectVent(el) {
+    if (!el || !el.dataset || !el.dataset.vent) return;
+    const vent = el.dataset.vent;
+    document.querySelectorAll('.vent-option').forEach(v => v.classList.remove('selected'));
+    document.querySelectorAll('.comparison-item').forEach(v => v.classList.remove('recommended'));
+    // Select the matching vent-option button
+    const opt = document.querySelector(`.vent-option[data-vent="${vent}"]`);
+    if (opt) opt.classList.add('selected');
+    // Highlight matching comparison item
+    const comp = document.querySelector(`.comparison-item[data-vent="${vent}"]`);
+    if (comp) comp.classList.add('recommended');
+    // Show matching detail
+    document.querySelectorAll('[id^="vent-detail-"]').forEach(d => d.style.display = 'none');
+    const detail = document.getElementById('vent-detail-' + vent);
+    if (detail) detail.style.display = 'block';
+  }
+
+  // Persist checklist state in localStorage
+  const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+  const STORAGE_KEY = 'hole-cut-job-checklist';
+
+  function loadChecklist() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      checkboxes.forEach(cb => { if (saved[cb.id]) cb.checked = true; });
+    } catch(e) {}
+  }
+
+  function saveChecklist() {
+    const state = {};
+    checkboxes.forEach(cb => { if (cb.checked) state[cb.id] = true; });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  checkboxes.forEach(cb => cb.addEventListener('change', saveChecklist));
+  loadChecklist();
+</script>
+
+</body>
+</html>
