@@ -415,6 +415,7 @@
 
 <div class="nav" id="nav">
   <button class="active" data-section="overview">Overview</button>
+  <button data-section="manual">Manual</button>
   <button data-section="measurements">Measurements</button>
   <button data-section="visualize">Visualize</button>
   <button data-section="vent-caps">Vent Caps</button>
@@ -508,6 +509,129 @@
 
     <div class="bottom-nav">
       <span></span>
+      <button class="btn primary" onclick="goTo('manual')">Next: See the Manual &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ===== MANUAL ===== -->
+  <div class="section" id="manual">
+    <h2 style="margin-bottom:1rem;">Midea Duo Manual — Installation Pages</h2>
+    <p style="color:var(--text-dim); margin-bottom:1rem;">These are the actual pages from the Midea Duo MAP14HS1TBL owner's manual (pages 12–17) that cover installation. Scroll through to see why the round hose goes through the wall — not the rectangular window adapter.</p>
+
+    <div class="callout info">
+      <div class="callout-label">Why the 12" × 8" Rectangular Adapter Is Not for Wall Installs</div>
+      <p>The Midea Duo's hose is <strong>round (~5" diameter)</strong>. That's the actual duct carrying both exhaust and intake air. The problem Midea had to solve for windows: <em>how do you fit a round hose into a thin rectangular window gap?</em></p>
+      <p style="margin-top:0.5rem;">Their solution is a <strong>shape converter</strong>:</p>
+      <ol style="margin-top:0.3rem;">
+        <li><strong>Window Sliders</strong> (page 14) — flat rectangular panels that fill the window opening like a board</li>
+        <li><strong>Sliding Window Adapter</strong> (page 16, the 12" × 8" piece) — a two-piece rectangular plastic shell that clips around the round hose end so it can seat into the rectangular cutout on the window slider panel</li>
+      </ol>
+      <p style="margin-top:0.5rem;">It's literally just a round-to-rectangular shape converter. The air still flows through the round hose inside it.</p>
+      <p style="margin-top:0.5rem;"><strong>For your through-wall install, you cut your own hole — so you cut it round to match the round hose.</strong> No shape conversion needed. The rectangular adapter stays in the box.</p>
+    </div>
+
+    <!-- Page 12: Installation overview + choosing location -->
+    <div class="card">
+      <h3>Page 12 — Installation Instructions: Location & Hose Setup</h3>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-bottom:0.5rem;">Shows the unit with the <strong>round hose</strong> going to a window. Note the hose is clearly circular. Clearance: at least 9.8" (25cm) from nearest wall.</p>
+      <div class="product-img-wrap spec">
+        <img src="images/manual/page-12.jpg" alt="Manual page 12 - Installation location and hose overview">
+      </div>
+    </div>
+
+    <!-- Page 13: Accessories list -->
+    <div class="card">
+      <h3>Page 13 — Accessories: What's in the Box</h3>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-bottom:0.5rem;">Key parts to note: the <strong>Air Exhaust Adapter</strong> (round ring, top of list) is separate from the <strong>Sliding Window Adapter - Front/Rear</strong> (rectangular pieces, middle of list). For your wall install, you only use the round Air Exhaust Adapter.</p>
+      <div class="product-img-wrap spec">
+        <img src="images/manual/page-13.jpg" alt="Manual page 13 - Accessories list">
+      </div>
+      <div class="callout" style="margin-top:0.8rem;">
+        <div class="callout-label">Parts You Use vs. Parts You Skip</div>
+        <table style="width:100%; border-collapse:collapse; margin-top:0.3rem;">
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.4rem; color:var(--success); font-weight:600;">&#10003; Air Exhaust Adapter</td>
+            <td style="padding:0.4rem; color:var(--text-dim);">Round ring — clips onto hose end, connects to your wall duct</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.4rem; color:var(--success); font-weight:600;">&#10003; Exhaust Hose</td>
+            <td style="padding:0.4rem; color:var(--text-dim);">Round hose-in-hose (~5" dia) — goes through the wall</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.4rem; color:var(--success); font-weight:600;">&#10003; Security Bracket + Screws</td>
+            <td style="padding:0.4rem; color:var(--text-dim);">Optional — can secure the wall adapter plate</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.4rem; color:var(--accent2); font-weight:600;">&#10007; Window Sliders (5 pc)</td>
+            <td style="padding:0.4rem; color:var(--text-dim);">Rectangular panels for filling window gap — not needed</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.4rem; color:var(--accent2); font-weight:600;">&#10007; Window Kit Brace</td>
+            <td style="padding:0.4rem; color:var(--text-dim);">Holds window sliders in place — not needed</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.4rem; color:var(--accent2); font-weight:600;">&#10007; Sliding Window Adapter (Front + Rear)</td>
+            <td style="padding:0.4rem; color:var(--text-dim);">The 12" × 8" rectangular piece — this is ONLY a round-to-rectangular shape converter for windows</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.4rem; color:var(--accent2); font-weight:600;">&#10007; Sliding Window Adapter - Air Divider</td>
+            <td style="padding:0.4rem; color:var(--text-dim);">Separates intake/exhaust inside the rectangular adapter — not needed</td>
+          </tr>
+          <tr>
+            <td style="padding:0.4rem; color:var(--accent2); font-weight:600;">&#10007; Foam Seals A/B/C</td>
+            <td style="padding:0.4rem; color:var(--text-dim);">For sealing window gaps — you'll use expanding foam + silicone caulk instead</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Page 14: Window Kit assembly -->
+    <div class="card">
+      <h3>Page 14 — Window Installation Kit Assembly</h3>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-bottom:0.5rem;">Shows how the round hose connects to the round Air Exhaust Adapter, then into the window slider panel. Top-left diagram clearly shows the <strong>round hose</strong> and <strong>round adapter</strong>. The rectangular window sliders are separate panels that fill the window gap. You're replacing these panels with a wall.</p>
+      <div class="product-img-wrap spec">
+        <img src="images/manual/page-14.jpg" alt="Manual page 14 - Window kit assembly showing round hose">
+      </div>
+    </div>
+
+    <!-- Page 15: Hung window type -->
+    <div class="card">
+      <h3>Page 15 — Type 1: Hung Window Installation</h3>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-bottom:0.5rem;">For hung windows (up/down), the round hose inserts directly into a circular opening in the slider panel. No rectangular adapter needed for this window type either — only for sliding (left/right) windows.</p>
+      <div class="product-img-wrap spec">
+        <img src="images/manual/page-15.jpg" alt="Manual page 15 - Hung window installation">
+      </div>
+    </div>
+
+    <!-- Page 16: Sliding window type (where the rectangular adapter appears) -->
+    <div class="card" style="border-color: var(--accent2);">
+      <h3 style="color:var(--accent2);">Page 16 — Type 2: Sliding Window (THIS Is Where the 12" × 8" Adapter Is Used)</h3>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-bottom:0.5rem;">THIS is the only installation type that uses the rectangular Sliding Window Adapter. It's a two-piece plastic shell (Front + Rear) that clips around the round hose so it can sit in the rectangular track of a horizontal sliding window. It's a shape converter, nothing more.</p>
+      <div class="product-img-wrap spec">
+        <img src="images/manual/page-16.jpg" alt="Manual page 16 - Sliding window installation with rectangular adapter">
+      </div>
+      <div class="callout warn" style="margin-top:0.8rem;">
+        <div class="callout-label">This Is the Part You Measured</div>
+        <p>The "Sliding Window Adapter (Front + Rear)" shown on this page is the ~12" × 8" rectangular piece you measured. It exists solely to convert the round hose to a rectangular profile for sliding window tracks. <strong>You do not need it. Your wall gets a round hole.</strong></p>
+      </div>
+    </div>
+
+    <!-- Page 17: Hose attachment + important notice -->
+    <div class="card">
+      <h3>Page 17 — Hose Connection & Important Notice</h3>
+      <p style="color:var(--text-dim); font-size:0.85rem; margin-bottom:0.5rem;">Shows the final hose attachment and includes the critical notice: "DO NOT overextend or bend the hose. Make sure there are no objects within 20in (~500mm) of the inlet and outlet hose."</p>
+      <div class="product-img-wrap spec">
+        <img src="images/manual/page-17.jpg" alt="Manual page 17 - Hose connection and notice">
+      </div>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, #1a2e1a, #1e3a2f); border-color: var(--success); text-align:center; padding:1.5rem;">
+      <h3 style="color:var(--success); font-size:1.1rem;">Bottom Line</h3>
+      <p style="margin-top:0.5rem;">Hose is round. Wall hole is round. 6⅜" cut. The 12" × 8" rectangular adapter stays in the box.</p>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="btn" onclick="goTo('overview')">&larr; Overview</button>
       <button class="btn primary" onclick="goTo('measurements')">Next: Measurements &rarr;</button>
     </div>
   </div>
@@ -603,7 +727,7 @@
     </div>
 
     <div class="bottom-nav">
-      <button class="btn" onclick="goTo('overview')">&larr; Overview</button>
+      <button class="btn" onclick="goTo('manual')">&larr; Manual</button>
       <button class="btn primary" onclick="goTo('visualize')">Next: Visualize &rarr;</button>
     </div>
   </div>
